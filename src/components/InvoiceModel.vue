@@ -158,7 +158,21 @@
             </tr>
           </table>
 
-          
+          <div @click="addNewInvoiceItem" class="flex button">
+            <img src="../assets/icon-plus.svg" alt="" />
+            Add New Item
+          </div>
+        </div>
+      </div>
+
+      <!-- Save/Exit -->
+      <div class="save flex">
+        <div class="left">
+          <button @click="closeInvoice" class="red">Cancel</button>
+        </div>
+        <div class="right flex">
+          <button @click="saveDraft" class="dark-purple">Save Draft</button>
+          <button @click="publishInvoice" class="purple">Create Invoice</button>
         </div>
       </div>
     </form>
@@ -200,4 +214,43 @@ export default {
 </script>
 
 <!-- InvoiceModel style -->
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.invoice-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media (min-width: 900px) {
+    left: 90px;
+  }
+  .invoice-content {
+    position: relative;
+    padding: 56px;
+    max-width: 700px;
+    width: 100%;
+    background-color: #141625;
+    color: #fff;
+    box-shadow: 10px 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    h1 {
+      margin-bottom: 48px;
+      color: #fff;
+    }
+    h3 {
+      margin-bottom: 16px;
+      font-size: 18px;
+      color: #777f98;
+    }
+    h4 {
+      color: #7c5dfa;
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+  }
+}
+</style>
